@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karla Navas Dev Journey</title>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <title>Dev Journey App</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/jpg" href="images/avatar-normal.jpg">
     <link rel="stylesheet" href="css/desktop.css">
@@ -21,69 +21,119 @@
             <div id="wittyComment" class="witty">hello!</div>
         </div>
     </header>
-    <section class="tech-card-odd">
-        <div class="tech-card-wrapper">
-            <div class="logo">
-                <i class='fab fa-html5'></i>
-            </div>
-            <div class="info">
-                <div class="info-title">
-                    <h2>HTML 5</h2>
-                    <div class="tags">
-                        <span>Front-end</span>
-                    </div>
-                </div>
-                <div class="info-description">
-                    <h3>Things I know</h3>
-                    <p>HTML5 tags, viewport, etc</p>
-                </div>
-            </div>
-            <div class="rating">
-                <div class="rating-stars">
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star-half-alt'></i>
-                    <!-- <i class="far fa-star"></i>                     -->
-                </div>
-                <div class="rating-last">
-                    Last updated<br>
-                    20/Oct/2020
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="tech-card-even">
-        <div class="tech-card-wrapper">
-            <div class="logo">
-                <i class='fab fa-css3'></i>
-            </div>
-            <div class="info">
-                <div class="info-title">
-                    <h2>CSS3</h2>
-                    <div class="tags">
-                        <span>Front-end</span>
-                    </div>
-                </div>
-                <div class="info-description">
-                    <h3>Things I know</h3>
-                    <p>Classes, lots of properties, etc</p>
-                </div>
-            </div>
-            <div class="rating">
-                <div class="rating-stars">
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star-half-alt'></i>
-                    <!-- <i class="far fa-star"></i>                     -->
-                </div>
-                <div class="rating-last">
-                    Last updated<br>
-                    20/Oct/2020
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="techStack">
+    </div>
+
+    <script type="text/javascript" src="https://momentjs.com/downloads/moment.js"></script>
+    <script type="text/javascript">
+        const stack = {
+            "data": [
+                {
+                    "techIcon": "fab fa-html5",
+                    "techTitle": "HTML 5",
+                    "tags": [
+                        "Front-end"
+                    ],
+                    "infoDescription": {
+                        "title": "Things I know",
+                        "description": "HTML5 tags, viewport, etc"
+                    },
+                    "stars": 5,
+                    "lastUpdated": "2020-10-20T22:00:00+10:00",
+                    "avatar": "avatar-normal.jpg"
+                },
+                {
+                    "techIcon": "fab fa-css3",
+                    "techTitle": "CSS 3",
+                    "tags": [
+                        "Front-end"
+                    ],
+                    "infoDescription": {
+                        "title": "Things I know",
+                        "description": "Classes, lots of properties, etc. There could be things I still don't know, hence the 4.5 stars :("
+                    },
+                    "stars": 4.5,
+                    "lastUpdated": "2020-10-20T22:00:00+10:00",
+                    "avatar": "avatar-normal.jpg"
+                },
+                {
+                    "techIcon": "fab fa-js-square",
+                    "techTitle": "Javascript",
+                    "tags": [
+                        "Front-end"
+                    ],
+                    "infoDescription": {
+                        "title": "Things I know",
+                        "description": "Browser based JS, Classes, ES5, ES6"
+                    },
+                    "stars": 3.5,
+                    "lastUpdated": "2020-10-20T22:00:00+10:00",
+                    "avatar": "avatar-normal.jpg"
+                }
+            ]
+        };
+        const { data } = stack;
+
+        const build = (targetId) => {
+
+            const techStack = document.getElementById(targetId);
+            let html = '';
+
+            const items = data.map((ele, i) => {
+                const techCardClass = (i + 1) % 2 == 1 ? "tech-card-odd":"tech-card-even";
+
+                const tags = ele.tags.map(tag => {
+                    return '<span>' + tag + '</span>';
+                });
+
+                const stars = [1, 1, 1, 1, 1].map((number, i) => {
+                    if(i + 1 <= ele.stars){
+                        return '<i class="fas fa-star"></i>';
+                    }
+                    else if(i + 1 > ele.stars && i < ele.stars){
+                        return '<i class="fas fa-star-half-alt"></i>';
+                    }
+                    else{
+                        return '<i class="far fa-star"></i>';
+                    }
+                });
+
+                const lastUpdatedWFormat = moment(ele.lastUpdated).format("D/MMM/YY");
+
+                return '<section class="' + techCardClass + '">'
+                    + '    <div class="tech-card-wrapper">'
+                    + '        <div class="logo">'
+                    + '            <i class="' + ele.techIcon + '"></i>'
+                    + '        </div>'
+                    + '        <div class="info">'
+                    + '            <div class="info-title">'
+                    + '                <h2>' + ele.techTitle + '</h2>'
+                    + '                <div class="tags">'
+                    + '                    ' + tags.join('')
+                    + '                </div>'
+                    + '            </div>'
+                    + '            <div class="info-description">'
+                    + '                <h3>' + ele.infoDescription.title + '</h3>'
+                    + '                <p>' + ele.infoDescription.description + '</p>'
+                    + '            </div>'
+                    + '        </div>'
+                    + '        <div class="rating">'
+                    + '            <div class="rating-stars">'
+                    + '                ' + stars.join('')
+                    + '            </div>'
+                    + '            <div class="rating-last">'
+                    + '                Last updated<br>'
+                    + '                ' + lastUpdatedWFormat
+                    + '            </div>'
+                    + '        </div>'
+                    + '    </div>'
+                    + '</section>';
+            });
+
+            techStack.innerHTML = items.join('');
+        }
+
+        build("techStack");
+    </script>
 </body>
 </html>
