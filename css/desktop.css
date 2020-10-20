@@ -20,22 +20,14 @@ header{
     width: 100%;
 }
 .title-container h1{
-    /* border-bottom: 1px solid #ccc; */
-    /* padding-bottom: 1rem; */
     margin: 1rem 1rem 1rem 0;
 }
 .title-container input[type=text]{
     border: 1px solid rgb(213, 40, 213);
-    font-size: 20px;
-    width: 75%;
-}
-.title-container button{
-    background-color: rgb(213, 40, 213);
-    border-color: rgb(213, 40, 213);
-    color: #fff;
-    font-size: 18px;
-    height: 1.7rem;
-    width: 18%;
+    font-size: 1.1rem;
+    width: 90%;
+    height: 1.6rem;
+    padding: 0 0.5rem;
 }
 .pic-container img{
     max-width: 100px;
@@ -111,4 +103,18 @@ section{
 }
 .rating-last{
     font-size: 0.6rem;
+}
+.nothingToSeeHere{
+    background-color: rgba(255, 255, 255, 0.44);
+    border: 2px solid #fff;
+    font-size: 1.2rem;
+    max-width: 800px;
+    padding: 2rem;
+    text-align: center;
+    margin: auto;
+}
+.nothingToSeeHere i{
+    display: block;
+    font-size: 4rem;
+    margin: 0 0 1rem 0;
 }
