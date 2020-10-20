@@ -1,0 +1,44 @@
+[
+    {
+        "techIcon": "fab fa-html5",
+        "techTitle": "HTML 5",
+        "tags": [
+            "Front-end"
+        ],
+        "infoDescription": {
+            "title": "Things I know",
+            "description": "HTML5 tags, viewport, etc"
+        },
+        "stars": 5,
+        "lastUpdated": "2020-10-20T22:00:00+10:00",
+        "avatar": "avatar-normal.jpg"
+    },
+    {
+        "techIcon": "fab fa-css3",
+        "techTitle": "CSS 3",
+        "tags": [
+            "Front-end"
+        ],
+        "infoDescription": {
+            "title": "Things I know",
+            "description": "Classes, lots of properties, etc. There could be things I still don't know, hence the 4.5 stars :("
+        },
+        "stars": 4.5,
+        "lastUpdated": "2020-10-20T22:00:00+10:00",
+        "avatar": "avatar-normal.jpg"
+    },
+    {
+        "techIcon": "fab fa-js-square",
+        "techTitle": "Javascript",
+        "tags": [
+            "Front-end"
+        ],
+        "infoDescription": {
+            "title": "Things I know",
+            "description": "Browser based JS, Classes, ES5, ES6"
+        },
+        "stars": 3.5,
+        "lastUpdated": "2020-10-20T22:00:00+10:00",
+        "avatar": "avatar-normal.jpg"
+    }
+]
