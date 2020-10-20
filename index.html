@@ -13,7 +13,7 @@
     <header>
         <div class="title-container">
             <h1>Karla Navas Dev Journey</h1>
-            <input id="searchField" type="text" class="form-search" />
+            <input id="searchField" type="text" class="form-search" autocomplete="off" />
         </div>
         <div class="pic-container">
             <div><img src="images/avatar-normal.jpg" /></div>
@@ -21,63 +21,27 @@
         </div>
     </header>
     <div id="techStack">
+        <section>
+            <div class="nothingToSeeHere">
+                 <div>
+                     <img src="images/loading.gif" />
+                     ... loading ...
+                 </div>
+            </div>
+        </section>
     </div>
 
     <script type="text/javascript" src="https://momentjs.com/downloads/moment.js"></script>
     <script type="text/javascript">
-        const stack = {
-            "data": [
-                {
-                    "techIcon": "fab fa-html5",
-                    "techTitle": "HTML 5",
-                    "tags": [
-                        "Front-end"
-                    ],
-                    "infoDescription": {
-                        "title": "Things I know",
-                        "description": "HTML5 tags, viewport, etc"
-                    },
-                    "stars": 5,
-                    "lastUpdated": "2020-10-20T22:00:00+10:00",
-                    "avatar": "avatar-normal.jpg"
-                },
-                {
-                    "techIcon": "fab fa-css3",
-                    "techTitle": "CSS 3",
-                    "tags": [
-                        "Front-end"
-                    ],
-                    "infoDescription": {
-                        "title": "Things I know",
-                        "description": "Classes, lots of properties, etc. There could be things I still don't know, hence the 4.5 stars :("
-                    },
-                    "stars": 4.5,
-                    "lastUpdated": "2020-10-20T22:00:00+10:00",
-                    "avatar": "avatar-normal.jpg"
-                },
-                {
-                    "techIcon": "fab fa-js-square",
-                    "techTitle": "Javascript",
-                    "tags": [
-                        "Front-end"
-                    ],
-                    "infoDescription": {
-                        "title": "Things I know",
-                        "description": "Browser based JS, Classes, ES5, ES6"
-                    },
-                    "stars": 3.5,
-                    "lastUpdated": "2020-10-20T22:00:00+10:00",
-                    "avatar": "avatar-normal.jpg"
-                }
-            ]
-        };
-        const { data } = stack;
+        let stackData;
+        const techStack = document.getElementById("techStack");
 
         const buildTechStackTable = (buildData) => {
+            if(!buildData){
+                return false;
+            }
 
-            const techStack = document.getElementById("techStack");
             let html = '';
-
             const items = buildData.map((ele, i) => {
                 const techCardClass = (i + 1) % 2 == 1 ? "tech-card-odd":"tech-card-even";
 
@@ -129,14 +93,17 @@
                     + '</section>';
             });
 
-            console.log(items.length);
-
             if(items.length){
                 techStack.innerHTML = items.join('');
             }
             else{
                 techStack.innerHTML = '<section>'
-                    + '<div class="nothingToSeeHere"><i class="far fa-sad-cry"></i>Sorry, I don\'t know about that tech skill yet!</div>'
+                    + '<div class="nothingToSeeHere">'
+                    + '     <div>'
+                    + '         <i class="far fa-sad-cry"></i>'
+                    + '         Sorry, I don\'t know about that tech skill yet!'
+                    + '     </div>'
+                    + '</div>'
                     + '</section>';
             }
         }
@@ -147,7 +114,7 @@
                 return subject.toLowerCase().indexOf(searchFieldValue) != -1;
             };
 
-            const searchResuls = data.filter((item) => {
+            const searchResuls = stackData.filter((item) => {
                 const foundInTitle = fieldSearch(item.techTitle);
                 const foundInTags = item.tags.find(tag => {
                     return fieldSearch(tag);
@@ -165,7 +132,13 @@
             .getElementById("searchField")
             .addEventListener("keyup", handleSearch);
 
-        buildTechStackTable(data);
+        fetch("./data/stack.json")
+            .then((response) => {
+                response.json().then(data => {
+                    stackData = data;
+                    buildTechStackTable(stackData);
+                });
+            });
     </script>
 </body>
 </html>
