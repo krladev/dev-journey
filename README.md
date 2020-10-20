@@ -9,7 +9,7 @@ There is a blog post about this [here](https://medium.com/@krladev/my-github-acc
 
 ## Social
 
-[![1.1]][1] [![1.2]][1]
+[![1.1]][1] [![1.2]][2]
 
 [1.1]: http://i.imgur.com/wWzX9uB.png
 [1]: https://twitter.com/krladev
