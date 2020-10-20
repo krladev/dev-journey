@@ -13,8 +13,7 @@
     <header>
         <div class="title-container">
             <h1>Karla Navas Dev Journey</h1>
-            <input type="text" class="form-search" />
-            <button class="btn-search">Search</button>
+            <input id="searchField" type="text" class="form-search" />
         </div>
         <div class="pic-container">
             <div><img src="images/avatar-normal.jpg" /></div>
@@ -74,12 +73,12 @@
         };
         const { data } = stack;
 
-        const build = (targetId) => {
+        const buildTechStackTable = (buildData) => {
 
-            const techStack = document.getElementById(targetId);
+            const techStack = document.getElementById("techStack");
             let html = '';
 
-            const items = data.map((ele, i) => {
+            const items = buildData.map((ele, i) => {
                 const techCardClass = (i + 1) % 2 == 1 ? "tech-card-odd":"tech-card-even";
 
                 const tags = ele.tags.map(tag => {
@@ -130,10 +129,43 @@
                     + '</section>';
             });
 
-            techStack.innerHTML = items.join('');
+            console.log(items.length);
+
+            if(items.length){
+                techStack.innerHTML = items.join('');
+            }
+            else{
+                techStack.innerHTML = '<section>'
+                    + '<div class="nothingToSeeHere"><i class="far fa-sad-cry"></i>Sorry, I don\'t know about that tech skill yet!</div>'
+                    + '</section>';
+            }
         }
 
-        build("techStack");
+        const handleSearch = () => {
+            const searchFieldValue = document.getElementById("searchField").value.toLowerCase();
+            const fieldSearch = (subject) => {
+                return subject.toLowerCase().indexOf(searchFieldValue) != -1;
+            };
+
+            const searchResuls = data.filter((item) => {
+                const foundInTitle = fieldSearch(item.techTitle);
+                const foundInTags = item.tags.find(tag => {
+                    return fieldSearch(tag);
+                });
+                const foundInDescTitle = fieldSearch(item.infoDescription.title);
+                const foundInDesc = fieldSearch(item.infoDescription.description);
+
+                return foundInTitle || foundInTags || foundInDescTitle || foundInDesc;
+            });
+
+            buildTechStackTable(searchResuls);
+        };
+
+        document
+            .getElementById("searchField")
+            .addEventListener("keyup", handleSearch);
+
+        buildTechStackTable(data);
     </script>
 </body>
 </html>
