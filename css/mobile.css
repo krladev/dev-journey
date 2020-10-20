@@ -1,0 +1,60 @@
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 767px)
+and (orientation : portrait) {
+    header{
+        width: 350px;
+    }
+    .tech-card-wrapper{
+        max-width: 350px;
+    }
+    .nothingToSeeHere{
+        max-width: 350px;
+    }
+
+    .logo{
+        width: 13%;
+    }
+    .logo i{
+        font-size: 2.5rem;
+    }
+    .info{
+        width: 69%;
+    }
+}
+
+@media only screen
+and (min-device-width : 568px)
+and (max-device-width : 666px)
+and (orientation : landscape) {
+    header{
+        width: 530px;
+    }
+    .logo{
+        display: none;
+    }
+    .tags{
+        display: none;
+    }
+    .tech-card-wrapper{
+        max-width: 530px;
+    }
+    .nothingToSeeHere{
+        max-width: 530px;
+    }
+}
+
+@media only screen
+and (min-device-width : 667px)
+and (max-device-width : 850px)
+and (orientation : landscape) {
+    header{
+        width: 630px;
+    }
+    .tech-card-wrapper{
+        max-width: 630px;
+    }
+    .nothingToSeeHere{
+        max-width: 630px;
+    }
+}

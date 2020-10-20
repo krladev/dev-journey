@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/jpg" href="images/avatar-normal.jpg">
     <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/tablet.css">
+    <link rel="stylesheet" href="css/small-mobile.css">
+    <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
     <header>
@@ -84,8 +87,11 @@
                     + '            <div class="rating-stars">'
                     + '                ' + stars.join('')
                     + '            </div>'
+                    + '            <div class="rating-stars-small">'
+                    + '                ' + ele.stars + ' <i class="fas fa-star"></i>'
+                    + '            </div>'
                     + '            <div class="rating-last">'
-                    + '                Last updated<br>'
+                    + '                <div class="lastUpdatedLabel">Last updated</div>'
                     + '                ' + lastUpdatedWFormat
                     + '            </div>'
                     + '        </div>'
