@@ -109,11 +109,18 @@ section{
     border: 2px solid #fff;
     font-size: 1.2rem;
     max-width: 800px;
-    padding: 2rem;
+    /* padding: 2rem; */
     text-align: center;
     margin: auto;
 }
-.nothingToSeeHere i{
+.nothingToSeeHere div{
+    padding: 2rem;
+}
+.nothingToSeeHere div img{
+    max-width: 4rem;
+    margin: 0 auto 1rem auto;
+}
+.nothingToSeeHere div i{
     display: block;
     font-size: 4rem;
     margin: 0 0 1rem 0;
