@@ -35,7 +35,7 @@
         ],
         "infoDescription": {
             "title": "Things I know",
-            "description": "Browser based JS, Classes, ES5, ES6"
+            "description": "Browser based JS, Classes, ES5, ES6, Async/Await, Modules"
         },
         "stars": 3.5,
         "lastUpdated": "2020-10-20T22:00:00+10:00",
@@ -49,9 +49,9 @@
         ],
         "infoDescription": {
             "title": "Things I know",
-            "description": "Very very basic knowledge so far"
+            "description": "Basic knowledge so far"
         },
-        "stars": 0.5,
+        "stars": 1,
         "lastUpdated": "2020-10-20T22:00:00+10:00",
         "avatar": "avatar-normal.jpg"
     },
@@ -70,30 +70,16 @@
         "avatar": "avatar-normal.jpg"
     },
     {
-        "techIcon": "fab fa-node",
-        "techTitle": "Node",
+        "techIcon": "fab fa-php",
+        "techTitle": "Modern PHP",
         "tags": [
             "Back-end"
         ],
         "infoDescription": {
             "title": "Things I know",
-            "description": "Nothing yet."
+            "description": "Basic Laravel"
         },
-        "stars": 0,
-        "lastUpdated": "2020-10-20T22:00:00+10:00",
-        "avatar": "avatar-normal.jpg"
-    },
-    {
-        "techIcon": "fab fa-python",
-        "techTitle": "Python",
-        "tags": [
-            "Back-end"
-        ],
-        "infoDescription": {
-            "title": "Things I know",
-            "description": "Nothing yet."
-        },
-        "stars": 0,
+        "stars": 2,
         "lastUpdated": "2020-10-20T22:00:00+10:00",
         "avatar": "avatar-normal.jpg"
     },
@@ -105,7 +91,7 @@
         ],
         "infoDescription": {
             "title": "Things I know",
-            "description": "Nothing yet."
+            "description": "Basic SQL statements to create schemas and do CRUD operations"
         },
         "stars": 0,
         "lastUpdated": "2020-10-20T22:00:00+10:00",
@@ -154,8 +140,22 @@
         "avatar": "avatar-normal.jpg"
     },
     {
-        "techIcon": "fab fa-php",
-        "techTitle": "Modern PHP",
+        "techIcon": "fab fa-node",
+        "techTitle": "Node",
+        "tags": [
+            "Back-end"
+        ],
+        "infoDescription": {
+            "title": "Things I know",
+            "description": "Nothing yet."
+        },
+        "stars": 0,
+        "lastUpdated": "2020-10-20T22:00:00+10:00",
+        "avatar": "avatar-normal.jpg"
+    },
+    {
+        "techIcon": "fab fa-python",
+        "techTitle": "Python",
         "tags": [
             "Back-end"
         ],
